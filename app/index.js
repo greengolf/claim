@@ -1,3 +1,6 @@
+import { v4 as uuidv4 } from "uuid";
+
+import { createCard } from "./utils.js";
 const catalog = [
   {
     id: "1",
@@ -39,7 +42,7 @@ const catalog = [
     name: "computer",
     price: 1000.0,
     category: "electronics",
-    quantity: 10,
+    quantity: 50,
   },
 ];
 
@@ -48,12 +51,30 @@ const user = {
   cart: [],
 };
 
-console.log(catalog[2].price.toFixed(2));
+const sayHello = (registeredUser) => `Hello, ${registeredUser.username}`;
 
-function add2Numbers(num1, num2) {
-  return num1 + num2;
+const calculateTotal = (price, quantity) => {
+  return price * quantity;
+};
+function calculateTotal(price, quantity) {
+  return price * quantity;
 }
 
-const total = add2Numbers(1, 2);
+const createCard = (item) =>
+  `
+  <section>
+  <h2>${item.name}</h2>
+  <u1>
+  <li>Price : $${item.price}</li>
+  <li>Category: ${item.category}</li>
+  <li>Quantity: ${item.quantity}</li>
+  </u1>
+  <button>Add to Cart</button>
+  </section>
+  `;
 
-console.log(total);
+const catalogHTML = catalog.map(createCard).join("");
+
+const { username } = ussr;
+
+console.log(catalogHTML);
